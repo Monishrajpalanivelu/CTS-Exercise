@@ -1,0 +1,27 @@
+<h2>Student Profile</h2>
+
+<form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)">
+  
+  <div style="margin-bottom: 16px;">
+    <label for="username" style="display: block; margin-bottom: 4px;">Username:</label>
+    <input type="text" id="username" name="username" ngModel required minlength="3" #username="ngModel" style="padding: 8px; width: 300px;">
+    
+    <div *ngIf="username.invalid && (username.dirty || username.touched)" style="color: red; margin-top: 4px;">
+      <small *ngIf="username.errors?.['required']" style="display: block;">Username is required.</small>
+      <small *ngIf="username.errors?.['minlength']" style="display: block;">Minimum length is 3 characters.</small>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 16px;">
+    <label for="email" style="display: block; margin-bottom: 4px;">Email:</label>
+    <input type="email" id="email" name="email" ngModel required email #email="ngModel" style="padding: 8px; width: 300px;">
+    
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" style="color: red; margin-top: 4px;">
+      <small *ngIf="email.errors?.['required']" style="display: block;">Email is required.</small>
+      <small *ngIf="email.errors?.['email']" style="display: block;">Please enter a valid email address.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="profileForm.invalid" style="padding: 8px 16px; cursor: pointer;">Save Profile</button>
+
+</form>

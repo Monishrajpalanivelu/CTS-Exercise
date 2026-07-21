@@ -1,0 +1,22 @@
+<!-- 1. String Interpolation: {{ }} -->
+<h1>Welcome to the {{ portalName }}</h1>
+<p>Your one-stop destination for managing your enrollments and tracking your progress.</p>
+
+<div>
+  <span>Courses Available: 12</span> | 
+  <span>Enrolled: 3</span> | 
+  <span>GPA: 3.8</span>
+</div>
+
+<hr>
+
+<!-- 2. Two-Way Binding: [(ngModel)] -->
+<div>
+  <label>Search Courses: </label>
+  <input [(ngModel)]="searchTerm" placeholder="Type here...">
+  <p>Searching for: {{ searchTerm }}</p>
+</div>
+
+<!-- 3. Property Binding: [disabled] & Event Binding: (click) -->
+<button [disabled]="!isPortalActive" (click)="onEnrollClick()">Enroll Now</button>
+<p>{{ message }}</p>
