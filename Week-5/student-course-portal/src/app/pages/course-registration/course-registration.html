@@ -1,0 +1,38 @@
+<h2>Register New Course</h2>
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  
+  <div style="margin-bottom: 16px;">
+    <label for="courseName" style="display: block; margin-bottom: 4px;">Course Name:</label>
+    <input type="text" id="courseName" formControlName="courseName" style="padding: 8px; width: 300px;">
+    
+    <div *ngIf="registrationForm.get('courseName')?.invalid && (registrationForm.get('courseName')?.dirty || registrationForm.get('courseName')?.touched)" style="color: red; margin-top: 4px;">
+      <small *ngIf="registrationForm.get('courseName')?.errors?.['required']" style="display: block;">Course name is required.</small>
+      <small *ngIf="registrationForm.get('courseName')?.errors?.['minlength']" style="display: block;">Course name must be at least 5 characters long.</small>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 16px;">
+    <label for="courseCode" style="display: block; margin-bottom: 4px;">Course Code:</label>
+    <input type="text" id="courseCode" formControlName="courseCode" placeholder="e.g. CS101" style="padding: 8px; width: 300px;">
+    
+    <div *ngIf="registrationForm.get('courseCode')?.invalid && (registrationForm.get('courseCode')?.dirty || registrationForm.get('courseCode')?.touched)" style="color: red; margin-top: 4px;">
+      <small *ngIf="registrationForm.get('courseCode')?.errors?.['required']" style="display: block;">Course code is required.</small>
+      <small *ngIf="registrationForm.get('courseCode')?.errors?.['pattern']" style="display: block;">Course code must be 2 uppercase letters followed by 3 numbers (e.g. CS101).</small>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 16px;">
+    <label for="credits" style="display: block; margin-bottom: 4px;">Credits:</label>
+    <input type="number" id="credits" formControlName="credits" style="padding: 8px; width: 300px;">
+    
+    <div *ngIf="registrationForm.get('credits')?.invalid && (registrationForm.get('credits')?.dirty || registrationForm.get('credits')?.touched)" style="color: red; margin-top: 4px;">
+      <small *ngIf="registrationForm.get('credits')?.errors?.['required']" style="display: block;">Credits are required.</small>
+      <small *ngIf="registrationForm.get('credits')?.errors?.['min']" style="display: block;">Minimum credits allowed is 1.</small>
+      <small *ngIf="registrationForm.get('credits')?.errors?.['max']" style="display: block;">Maximum credits allowed is 5.</small>
+    </div>
+  </div>
+
+  <button type="submit" style="padding: 8px 16px; cursor: pointer;">Register Course</button>
+
+</form>

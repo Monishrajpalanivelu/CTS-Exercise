@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'; // <-- Import the hooks
+import { Component, OnInit, OnDestroy } from '@angular/core'; 
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -7,19 +7,18 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-export class Home implements OnInit, OnDestroy { // <-- Implement the interfaces
+export class Home implements OnInit, OnDestroy { 
   portalName = 'Student Course Portal';
   isPortalActive = true;
   message = '';
   searchTerm = '';
 
-  // 1. ngOnInit: Runs once after the component's inputs are initialized
   ngOnInit() {
-    // We will simulate fetching courses for now
+
     console.log('HomeComponent initialised — courses loaded');
   }
 
-  // 2. ngOnDestroy: Runs once right before the component is destroyed
+ 
   ngOnDestroy() {
     console.log('HomeComponent destroyed');
   }
